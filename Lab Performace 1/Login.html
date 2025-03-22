@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<head>
+        <title>Login Form</title>
+</head>
+<body>
+
+        <form >
+                <table>
+
+                     
+                <tr>
+                        <td colspan="2" align="center"><h2>Login</h2></td>
+                </tr>
+                <tr>
+                        <td colspan="2" align="center"> <p id="error"></p></td>
+                </tr>  
+                <tr>
+                        <td>Username:</td>
+                        <td><input type="text" name="username" id="username" ></td>
+                </tr>
+                <tr>
+                        <td>Password:</td>
+                        <td><input type="password" name="password" id="password"></td>
+                </tr>
+                <tr>
+                        <td colspan="2" align="center">
+                        <input type="button" id ="button" onclick="loginVaildate()" value="Login">
+                        </td>
+                </tr>
+                </table>
+        </form>
+
+
+        <script>
+                let user=document.getElementById("username");
+                let pass=document.getElementById("password");
+                let error=document.getElementById("error");
+                // let loginVaildate=()=>{
+                //         let username=user.value;
+                //         let password=pass.value;
+                //         if(username===""||password===""){
+                //                 error.innerHTML = "please type username first!";
+                //                 error.style.color = 'red';
+                //         }
+
+                        
+                // }
+
+                function loginVaildate(){
+                        let username=user.value;
+                        let password=pass.value;
+                        if(username==""&&password==""){
+                                error.innerHTML = "Fill up the username & password first!";
+                                error.style.color = 'red';
+                        }
+                        else if(username==""){
+                                error.innerHTML = "Fill up username first!";
+                                error.style.color = 'red';
+
+                        }
+                        else if(password==""){
+                                error.innerHTML = "Fill up password first!";
+                                error.style.color = 'red';
+                        }
+                        else{
+                                error.innerHTML = "Null Vaildated";
+                                error.style.color = 'green';
+                        }
+
+                        
+                }
+        </script>
+
+
+        
+</body>
+</html>
