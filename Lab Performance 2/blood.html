@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Blood Group Validation</title>
+</head>
+<body>
+        <p id="error"></p>
+    <form>
+        <table>
+            <tr>
+                <td>Blood Group</td>
+                <td>
+                    <select id="blood">
+                        <option value="">Select</option>
+                        <option value="A+">A+</option>
+                        <option value="A-">A-</option>
+                        <option value="B+">B+</option>
+                        <option value="B-">B-</option>
+                        <option value="O+">O+</option>
+                        <option value="O-">O-</option>
+                        <option value="AB+">AB+</option>
+                        <option value="AB-">AB-</option>
+                    </select>
+                </td>
+            </tr>
+
+            <tr>
+                <td colspan="5"><hr></td>
+            </tr>
+
+            <tr>
+                <td colspan="2" align="center">
+                    <input type="button" value="Submit" onclick="validate()">
+                </td>
+            </tr>
+        </table>
+        
+    </form>
+
+    <script>
+        function validate() {
+            let blood = document.getElementById("blood").value;
+            let error = document.getElementById("error");
+
+            if (blood === "") {
+                error.innerText = "Blood group must be selected!";
+                error.style.color = "red";
+                return false;
+            }
+
+            error.innerText = "vaild";
+            error.style.color = "green";
+            return true;
+        }
+    </script>
+
+</body>
+</html>
