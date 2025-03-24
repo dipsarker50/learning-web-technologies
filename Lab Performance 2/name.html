@@ -15,18 +15,29 @@
                         error.style.color = 'red';
                         return false;
                     }
-                    if (!pattern.test(name)) {
-                        error.innerHTML = "Invalid characters used! Please use a-z or A-Z or dot(.) or dash(-) & Name must start with a letter";
-                        error.style.color = 'red';
+                    if (!((name[0] >= 'A' && name[0] <= 'Z') || (name[0] >= 'a' && name[0] <= 'z'))) {
+                        error.innerHTML = "Name must start with a letter!";
+                        error.style.color = "red";
                         return false;
-                    }
+                     }
+
+           
+                     for (let i = 0; i < name.length; i++) {
+                        let char = name[i];
+                        if (!((char >= 'A' && char <= 'Z') || (char >= 'a' && char <= 'z') || char === '.' || char === '-')) {
+                        error.innerHTML = "Invalid characters used! Please use a-z, A-Z, dot (.), or dash (-)";
+                        error.style.color = "red";
+                        return false;
+                        }
+                     }
                     if (name.length < 2) {
                         error.innerHTML = "Name must be at least two words.";
                         error.style.color = 'red';
                         return false;
                     }
         
-                    error.innerHTML = ""; 
+                    error.innerHTML = "Vaild"; 
+                    error.style.color = 'green';
                     return true;
                 }
             </script>
