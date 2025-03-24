@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+        <title>Gender Vaildation</title>
+</head>
+<body>
+
+        <form>
+                <fieldset>
+                        <legend>Gender</legend>
+                        <table>
+
+                                <tr>
+                                        <td><p id="error"></p></td>
+                                </tr>
+                        
+                                <tr>
+                                        <td><input type="radio" name="gender" value="">Male <input type="radio" name="gender" value="">Female <input type="radio" name="gender" value="">Other</td>
+                                </tr>
+
+                                <tr>
+                                        <td><input type="button" id="button" name="button" value="Submit" onclick="validate()"></td>
+                                </tr>
+                        </table>
+                                
+                </fieldset>
+               
+        </form>
+
+
+
+        <script>
+                function validate() {
+                    let gender = document.getElementsByName("gender");
+                    let error = document.getElementById("error");
+                    let flag = false;
+        
+                    for (let i = 0; i < gender.length; i++) {
+                        if (gender[i].checked) {
+                            flag = true;
+                            break;
+                        }
+                    }
+        
+                    if (!flag) {
+                        error.innerText = "Please select a gender";
+                        error.style.color = "red";
+                        return false;
+                    } else {
+                        error.innerText = "Vaildate"; 
+                        error.style.color = "green";
+                        return true;
+                    }
+                }
+            </script>
+        
+</body>
+</html>
