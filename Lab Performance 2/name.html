@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <title>Name Vaildation</title>
+
+        <script>
+                function validate() {
+                    let name = document.getElementById("name").value;
+                    let error = document.getElementById("error");
+        
+                    let pattern = /^[A-Za-z][A-Za-z.\-]*$/;
+        
+                    if (name === "") {
+                        error.innerHTML = "Fill the name!";
+                        error.style.color = 'red';
+                        return false;
+                    }
+                    if (!pattern.test(name)) {
+                        error.innerHTML = "Invalid characters used! Please use a-z or A-Z or dot(.) or dash(-) & Name must start with a letter";
+                        error.style.color = 'red';
+                        return false;
+                    }
+                    if (name.length < 2) {
+                        error.innerHTML = "Name must be at least two words.";
+                        error.style.color = 'red';
+                        return false;
+                    }
+        
+                    error.innerHTML = ""; 
+                    return true;
+                }
+            </script>
+</head>
+<body>
+        <form>
+                <table>
+                        <tr>
+                                <td><p id="error"></p></td>
+                        </tr>
+                        <tr>
+                            <td>Name</td>
+                        </tr>
+                        <tr>
+                                <td><input type="text" id="name" name="name"></td>
+                        </tr>
+                        <tr>
+                                <td><input type="button" id="button" name="button" value="Submit" onclick="validate()"></td>
+                        </tr>
+                </table>
+        </form>
+
+
+
+        
+        
+</body>
+</html>
