@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Profile Picture Vaildation</title>
+</head>
+<body>
+        <p id="error"></p>
+
+    <form>
+        <fieldset>
+            <legend>Profile Picture</legend>
+            <table>
+                <tr>
+                    <td>User ID:</td>
+                    <td><input type="text" id="userId" name="userId"></td>
+                </tr>
+                <tr>
+                    <td>Picture:</td>
+                    <td><input type="file" id="picture" name="picture" accept="image/*"></td>
+                </tr>
+                <tr>
+                    <td colspan="2"><input type="button" value="Submit" onclick="validate()"></td>
+                </tr>
+            </table>
+        </fieldset>
+    </form>
+
+    <script>
+        function validate() {
+            let userId = document.getElementById("userId").value;
+            let picture = document.getElementById("picture").value;
+            let error = document.getElementById("error");
+
+            if (userId === "" || isNaN(userId) || userId <= 0) {
+                error.innerText = "User ID must be a positive number.";
+                error.style.color = "red";
+                return false;
+            }
+            if (picture === "") {
+                error.innerText = "Please select a profile picture.";
+                error.style.color = "red";
+                return false;
+            }
+            error.innerText="vaild";
+            error.style.color = "green";
+            return true;
+        }
+    </script>
+
+</body>
+</html>
