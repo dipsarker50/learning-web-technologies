@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Date of Birth Vaildation</title>
+</head>
+<body>
+
+       <p id="error"></p>
+       
+
+    <form>
+        <fieldset>
+            <legend><b>Date of Birth</b></legend>
+            <table>
+                <tr>
+                    <td><p>dd</p></td>
+                    <td></td>
+                    <td><p>mm</p></td>
+                    <td></td>
+                    <td><p>yyyy</p></td>
+                </tr>
+                <tr>
+                    <td><input type="text" id="day" size="2" maxlength="2"></td>
+                    <td>/</td>
+                    <td><input type="text" id="month" size="2" maxlength="2"></td>
+                    <td>/</td>
+                    <td><input type="text" id="year" size="4" maxlength="4"></td>
+                </tr>
+                <tr>
+                    <td colspan="5"><hr></td>
+                </tr>
+                <tr>
+                    <td colspan="5"><input type="button" value="Submit" onclick="validate()"></td>
+                </tr>
+            </table>
+        </fieldset>
+    </form>
+
+
+
+    <script>
+        function validate() {
+            let day = document.getElementById("day").value;
+            let month = document.getElementById("month").value;
+            let year = document.getElementById("year").value;
+            let error = document.getElementById("error");
+
+            if (day === "" || month === "" || year === "") {
+                error.innerText = "Fields cannot be empty!";
+                error.style.color = "red";
+                return false;
+            }
+
+            day = Number(day);
+            month = Number(month);
+            year = Number(year);
+
+            if (isNaN(day) || isNaN(month) || isNaN(year)) {
+                error.innerText = "Only numbers are allowed!";
+                error.style.color = "red";
+                return false;
+            }
+
+            if (day < 1 || day > 31) {
+                error.innerText = "Day must be between 1 and 31!";
+                error.style.color = "red";
+                return false;
+            }
+
+            if (month < 1 || month > 12) {
+                error.innerText = "Month must be between 1 and 12!";
+                error.style.color = "red";
+                return false;
+            }
+
+            if (year < 1900 || year > 2016) {
+                error.innerText = "Year must be between 1900 and 2016!";
+                error.style.color = "red";
+                return false;
+            }
+
+            error.innerText = "Vaild";
+            error.style.color = "green";
+            return true;
+        }
+    </script>
+
+</body>
+</html>
